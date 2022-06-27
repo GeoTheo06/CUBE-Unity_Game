@@ -16,6 +16,7 @@ public class inGameOptions : MonoBehaviour
         SongSlider.value = PlayerPrefs.GetFloat("SongVolume");
         SoundSlider.value = PlayerPrefs.GetFloat("SoundVolume");
         horizontalMoveValue.value = PlayerPrefs.GetInt("horizontalControlForce");
+        unrealisticMovement = false;
     }
 
     public GameManager1 gameManager;
@@ -33,6 +34,14 @@ public class inGameOptions : MonoBehaviour
 
     public void resetHorizontalForce() {
         horizontalMoveValue.value = 225;
+    }
+    public bool unrealisticMovement;
+    public void unrealisticMovementFunction() {
+        if (unrealisticMovement) {
+            unrealisticMovement = false;
+        } else {
+            unrealisticMovement = true;
+        }
     }
 
     public void Update() { //fixedUpdate doesn't work when "time.timeScale" is set to 0.

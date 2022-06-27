@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
 	public Rigidbody rb;
 	public Transform player;
+	public inGameOptions options;
 
 	Vector3 initialPlayerPosition;
 	Vector3 currentPlayerPosition;
@@ -41,13 +42,28 @@ public class PlayerMovement : MonoBehaviour
 			
 			//Make character go left, right based on input
 			if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow)) {
+			if (!options.unrealisticMovement) {
 				rb.AddForce(0, 0, horizontalMoveForce * Time.deltaTime, ForceMode.VelocityChange); //forceMode.VelocityChange ignores the mass of our object.
-			}
-			if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow)) {
-				rb.AddForce(0, 0, -horizontalMoveForce * Time.deltaTime, ForceMode.VelocityChange);
+			} else {
+				player.position = new Vector3(player.position.x, player.position.y, player.position.z + 1f);
 			}
 
-			//make player-fall look more realistic
+			}
+			if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow)) {
+			if (!options.unrealisticMovement) {
+				rb.AddForce(0, 0, -horizontalMoveForce * Time.deltaTime, ForceMode.VelocityChange);
+			} else {
+				player.position = new Vector3(player.position.x, player.position.y, player.position.z - 1f);
+			}
+		}
+		//make collision (when falling from the edges - in experimental mode) with wall
+		if (options.unrealisticMovement && player.position.y <= 2.4 && player.position.z <= 93.9) {
+			player.position = new Vector3(player.position.x, player.position.y, player.position.z + 1);
+		} else if (options.unrealisticMovement && player.position.y <= 2.4 && player.position.z >= -1.9) {
+			player.position = new Vector3(player.position.x, player.position.y, player.position.z - 1);
+		}
+
+			//make player-fall -from jump- look more realistic
 			if (((rb.position.y > 5) && (rb.velocity.y < 45)) || ((rb.velocity.y > -60) && (rb.velocity.y < -1.5))) //first case for when character has jumped so the velocity is big. Second case is for when the character is simply falling from the edge so the velocity is really small and hard to detect. The thrid case is there because of the bug where in the forth continuous jump the player jumped way to high for some reason
 			{
 				rb.AddForce(0, downMoveForce * Time.deltaTime, 0, ForceMode.VelocityChange);
