@@ -64,6 +64,8 @@ public class GameManager1 : MonoBehaviour
 	public float timer;
 	public bool stopCounting = false;
 	public bool GameOver;
+	public bool animHasAlreadyStarted;
+	public Animator screenFade;
 	public GameObject backgroundGameAudio;
 	public inGameOptions inGameOptions;
 	private void FixedUpdate()
@@ -72,10 +74,12 @@ public class GameManager1 : MonoBehaviour
 		{
 			GameOver = true;
 			timer += Time.deltaTime;
-			if (RenderSettings.fogDensity < 1)
-			{
-				RenderSettings.fogDensity += 0.003f;
+
+			if (!animHasAlreadyStarted) {
+				screenFade.Play("screenFade", 0, 0.0f);
+				animHasAlreadyStarted = true;
 			}
+
 			if (AudioListener.volume > 0) {
 				gameSong.volume -= 0.004f;
 			}
