@@ -1,32 +1,18 @@
 # CUBE
-CUBE is a simple 3D game made in Unity where the player controls a ball and tries to dodge randomly spawned red obstacles while rolling down an aisle. The game was created as a learning project to explore the basics of game development in Unity.
+CUBE is a 3D game developed in Unity where the player controls a ball and rolls down an aisle while trying to dodge a randomly spawned set of red obstacles and remain on the aisle. The game was created as a project to learn the basics of Unity game development and has a simplistic yet challenging gameplay.
+
+## Technologies Used
+CUBE was developed in Unity game engine using C# scripting language. The game features 3D graphics and sound effects. The UI for the end screen and menu with scores was also created in Unity.
 
 ## Gameplay
-The player controls a ball using the WASD keys and spacebar to jump. The ball rolls down an aisle, and the goal is to avoid colliding with randomly spawned red obstacles. Falling off the aisle also results in game over. The game continues until the player collides with an obstacle or falls off the aisle. The goal of the game is to collect as many points as possible. Points are earned for surviving.
+The gameplay of CUBE involves controlling a ball down an aisle using the WASD keys and spacebar to jump for PC and using the arrow symbols to move the ball and tapping anywhere on the screen to jump for the android Version. The player must dodge a set of red obstacles that are randomly spawned on the aisle and try to remain on the aisle without falling off. As the game progresses, the speed of the ball increases, making it more challenging for the player to avoid obstacles and stay on the aisle.
 
 ## Installation
-1. To play CUBE, download the desired version from the "Releases" folder:
-   * cube.apk for Android devices
-   * cube_32_installer.exe for 32-bit Windows PCs
-   * cube_64_installer.exe for 64-bit Windows PCs
-2. Once downloaded, install the game and launch it.
+CUBE is available for both Android and PC. To install and play the game, follow the below steps:
 
-## Controls
-* PC Version
-   * Move the ball: WASD or arrows 
-   * Jump: Spacebar 
-* Android Version
-   * Arrow buttons: Move the ball
-   *  jump: Press anywhere in the screen
+1. Go to the "Releases" folder in the GitHub repository.
+   * For Android devices, download the "cub.apk" file and install it on your device.
+   * For PC, choose the appropriate installer file based on your system architecture. Download "cube_32_installer.exe" if you are using a 32-bit system or "cube_64_installer.exe" if you are using a 64-bit system. Then, run the installer and follow the instructions to install the game.
 
-## Sound
-The game includes music and sound effects for colliding with obstacles, and falling off the aisle.
-
-## User Interface
-CUBE features a user interface for the end screen and menu with scores that remain after exit and options for playing again or exiting the game.
-
-## Notes
-* The game was created as a learning project, and the code may not be optimal.
-* The game was last updated on Jun 28, 2022, and may not be compatible with the latest versions of Unity.
-* For any issues or suggestions, please create a new issue in the GitHub repository.
-Thank you for playing CUBE!
+## Note
+The code for CUBE is quite old and may not be up to current coding standards. The game was created for learning purposes and does not represent my current skill level. However, the game still provides a fun and challenging experience for players.
